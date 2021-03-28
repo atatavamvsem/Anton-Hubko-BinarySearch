@@ -20,10 +20,10 @@ public class BinarySearch {
                 LOGGER.debug("Element not found, our value is less");
                 return recursiveBinarySearch(arr, firstElementPosition, mid - 1, elementToSearch);
             }
-            LOGGER.debug("Element not found");
+            LOGGER.debug("Element not found, our value is more");
             return recursiveBinarySearch(arr, mid + 1, lastElementPosition, elementToSearch);
         }
-        LOGGER.debug("Element not found, our value is more");
+        LOGGER.debug("Element not found");
         return -1;
     }
 }
