@@ -7,6 +7,11 @@ public class BinarySearch {
     private static final Logger LOGGER
             = LoggerFactory.getLogger(BinarySearch.class);
 
+    public static void recursiveBinarySearch(int arr[], int elementToSearch) {
+        int firstElementPosition = 0, lastElementPosition = arr.length-1;
+        recursiveBinarySearch(arr, firstElementPosition, lastElementPosition, elementToSearch);
+    }
+
     public static int recursiveBinarySearch(int arr[], int firstElementPosition, int lastElementPosition, int elementToSearch) {
         LOGGER.debug("Looking for an element: {}, search range:[{},{}] ", elementToSearch, arr[firstElementPosition],arr[lastElementPosition]);
         if (lastElementPosition >= firstElementPosition) {
@@ -20,10 +25,10 @@ public class BinarySearch {
                 LOGGER.debug("Element not found, our value is less");
                 return recursiveBinarySearch(arr, firstElementPosition, mid - 1, elementToSearch);
             }
-            LOGGER.debug("Element not found");
+            LOGGER.debug("Element not found, our value is more");
             return recursiveBinarySearch(arr, mid + 1, lastElementPosition, elementToSearch);
         }
-        LOGGER.debug("Element not found, our value is more");
+        LOGGER.debug("Element not found");
         return -1;
     }
 }
